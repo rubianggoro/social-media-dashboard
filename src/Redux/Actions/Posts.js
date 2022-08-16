@@ -1,4 +1,5 @@
 import axios from "axios";
+import { host } from "../../Helpers/constants";
 
 export const GET_DATA_BEGIN = "GET_DATA_BEGIN";
 export const GET_DATA_SUCCESS = "GET_DATA_SUCCESS";
@@ -24,12 +25,12 @@ export const getDataFailed = (error) => {
   };
 };
 
-export const getUsers = () => {
+export const getPostByUserId = (userID) => {
   return (dispatch) => {
     dispatch(getDataBegin());
 
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
+      .get(`${host}/users/${userID}/posts`)
       .then((result) => dispatch(getDataSuccess(result.data)))
       .catch((error) => dispatch(getDataFailed(error.massage)));
   };

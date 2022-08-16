@@ -2,7 +2,7 @@ import {
     GET_DATA_BEGIN,
     GET_DATA_SUCCESS,
     GET_DATA_FAILED,
-  } from "../Actions/Action";
+  } from "../Actions/Users";
   
   const initState = {
     data: [],

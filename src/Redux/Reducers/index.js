@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
 
-import getUsers from './Reducer'
+import getUsers from './Users'
+import getPosts from "./Posts";
 
-const rootReducer = combineReducers({ getUsers });
+const rootReducer = combineReducers({ getUsers, getPosts });
 
 export default rootReducer;
