@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Container, Table, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Headers from '../Components/Headers';
 import { getUsers } from '../Redux/Actions/Users';
 
@@ -19,6 +19,10 @@ const Dashboard = () => {
 
 	const onClickPosts = (id) => {
 		navigate(`/${id}/posts`)
+	}
+
+	const onClickAlbums = (id) => {
+		navigate(`/${id}/albums`)
 	}
 
   return (
@@ -50,9 +54,9 @@ const Dashboard = () => {
 									<td>{val.email}</td>
 									<td>{val.phone}</td>
 									<td><a href="/">{val.website}</a></td>
-									<td>{val.company.name}</td>
-									<td>{`${val.address.street} ${val.address.suite} ${val.address.city}`}</td>
-									<td><Button onClick={() => onClickPosts(val.id)}>Daftar Posting</Button> <Button>Daftar Album</Button></td>
+									<td>{val.company?.name}</td>
+									<td>{`${val.address?.street} ${val.address?.suite} ${val.address?.city}`}</td>
+									<td><Button onClick={() => onClickPosts(val.id)}>Daftar Posting</Button> <Button onClick={() => onClickAlbums(val.id)}>Daftar Album</Button></td>
 								</tr>
 							)
 						}

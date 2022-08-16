@@ -2,15 +2,14 @@ import React, { useEffect } from 'react'
 import { Container, Row, Col, Card, Button, Breadcrumb } from 'react-bootstrap'
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from 'react-router-dom';
-
 import Headers from '../Components/Headers'
-import { getPostByUserId } from '../Redux/Actions/Posts';
 
-const PostList = () => {
+import { getAlbumByUserId } from '../Redux/Actions/Albums';
+
+const AlbumList = () => {
 
 	const dispatch = useDispatch()
 	const location = useLocation()
-	const navigate = useNavigate()
 
 	// get userId
 	const getId = () => {
@@ -19,12 +18,12 @@ const PostList = () => {
 		return result;
 	}
 
-	// get post by userId
+	// get albums by userId
 	useEffect(() => {
-		dispatch(getPostByUserId(getId()))
+		dispatch(getAlbumByUserId(getId()))
 	}, [dispatch])
 
-	const { data } = useSelector((state) => state.getPosts)
+	const { data } = useSelector((state) => state.getAlbums)
 
 	return (
 		<div>
@@ -32,29 +31,27 @@ const PostList = () => {
 			<Container fluid>
 				<Breadcrumb>
 					<Breadcrumb.Item href="/">Dashboard</Breadcrumb.Item>
-					<Breadcrumb.Item active>Posting List</Breadcrumb.Item>
+					<Breadcrumb.Item active>Album List</Breadcrumb.Item>
 				</Breadcrumb>
-				<h5>Posting List</h5>
+				<h5>Album List</h5>
 				<Row>
-				{data?.length !== 0 ? data?.map((val, index) => {
+				{data.map((val, index) => {
 					return (
 						<Col key={index} className='my-3'>
 							<Card style={{ width: '18rem' }}>
 								<Card.Body>
 									<Card.Title>{val.title}</Card.Title>
-									<Card.Text>
-										{val.body}
-									</Card.Text>
 									<Button variant="primary">Lihat Detail</Button>
 								</Card.Body>
 							</Card>
 						</Col>
 					)
-				}) : <p className='text-center'>Loading...</p>}
+				})}
+					
 				</Row>
 			</Container>
 		</div>
 	)
 }
 
-export default PostList
+export default AlbumList
