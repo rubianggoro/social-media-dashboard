@@ -70,7 +70,6 @@ const AlbumDetail = () => {
         <Modal.Header closeButton>
 					<img src={viewImage} alt='img' className='img-fluid'/>
         </Modal.Header>
-        
       </Modal>
     </div>
   )

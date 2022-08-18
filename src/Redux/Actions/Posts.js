@@ -13,6 +13,14 @@ export const GET_COMMENTS_BEGIN = "GET_COMMENTS_BEGIN";
 export const GET_COMMENTS_SUCCESS = "GET_COMMENTS_SUCCESS";
 export const GET_COMMENTS_FAILED = "GET_COMMENTS_FAILED";
 
+export const ADD_POST = "ADD_POST";
+export const UPDATE_POST = "UPDATE_POST";
+export const DELETE_POST = "DELETE_POST";
+
+export const ADD_COMMENT = "ADD_COMMENT";
+export const UPDATE_COMMENT = "UPDATE_COMMENT";
+export const DELETE_COMMENT = "DELETE_COMMENT";
+
 // Begin Get Post List
 export const getDataBegin = () => {
   return {
@@ -111,3 +119,51 @@ export const getComment = (postID) => {
   };
 };
 // End Get Comments
+
+// Add Post
+export const addPost = (val) => {
+  return {
+    type: ADD_POST,
+    result: val
+  };
+};
+
+// Update Post
+export const updatePost = (val) => {
+  return {
+    type: UPDATE_POST,
+    result: val
+  };
+};
+
+// Delete Post
+export const deletePost = (index) => {
+  return {
+    type: DELETE_POST,
+    index
+  };
+};
+
+// Add Comment
+export const addComment = (val) => {
+  return {
+    type: ADD_COMMENT,
+    result: val
+  };
+};
+
+// Update Comment
+export const updateComment = (val) => {
+  return {
+    type: UPDATE_COMMENT,
+    result: val
+  };
+};
+
+// Delete Post
+export const deleteComment = (index) => {
+  return {
+    type: DELETE_COMMENT,
+    index
+  };
+};
