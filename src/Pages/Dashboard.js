@@ -17,14 +17,6 @@ const Dashboard = () => {
 
 	const { data } = useSelector((state) => state.getUsers)
 
-	const onClickPosts = (id) => {
-		navigate(`/${id}/posts`)
-	}
-
-	const onClickAlbums = (id) => {
-		navigate(`/${id}/albums`)
-	}
-
   return (
     <div>
 			<Headers/>
@@ -56,7 +48,7 @@ const Dashboard = () => {
 									<td><a href="/">{val.website}</a></td>
 									<td>{val.company?.name}</td>
 									<td>{`${val.address?.street} ${val.address?.suite} ${val.address?.city}`}</td>
-									<td><Button onClick={() => onClickPosts(val.id)}>Daftar Posting</Button> <Button onClick={() => onClickAlbums(val.id)}>Daftar Album</Button></td>
+									<td><Button onClick={() => navigate(`/${val.id}/posts`)}>Daftar Posting</Button> <Button onClick={() => navigate(`/${val.id}/albums`)}>Daftar Album</Button></td>
 								</tr>
 							)
 						}

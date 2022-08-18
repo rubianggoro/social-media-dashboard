@@ -10,6 +10,7 @@ const AlbumList = () => {
 
 	const dispatch = useDispatch()
 	const location = useLocation()
+	const navigate = useNavigate()
 
 	// get userId
 	const getId = () => {
@@ -41,13 +42,12 @@ const AlbumList = () => {
 							<Card style={{ width: '18rem' }}>
 								<Card.Body>
 									<Card.Title>{val.title}</Card.Title>
-									<Button variant="primary">Lihat Detail</Button>
+									<Button variant="primary" onClick={() => navigate(`/${getId()}/albums/${val.id}`)}>Lihat Detail</Button>
 								</Card.Body>
 							</Card>
 						</Col>
 					)
 				})}
-					
 				</Row>
 			</Container>
 		</div>

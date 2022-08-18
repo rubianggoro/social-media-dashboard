@@ -45,7 +45,7 @@ const PostList = () => {
 									<Card.Text>
 										{val.body}
 									</Card.Text>
-									<Button variant="primary">Lihat Detail</Button>
+									<Button variant="primary" onClick={() => navigate(`/${getId()}/posts/${val.id}`)}>Lihat Detail</Button>
 								</Card.Body>
 							</Card>
 						</Col>
